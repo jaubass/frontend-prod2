@@ -1,4 +1,12 @@
 h1 {
-  font-family: 'Poppins', sans-serif; /* Aplica tipografia Poppins a los encabezados */
+  font-family: 'Roboto', sans-serif;
   font-weight: 100;
+  font-size: 24px;
+  padding-top: 6px;
+}
+
+.nav-container {
+  font-weight: 200;
+  background-color: #e7eaf2;
+  align-items: center;
 }

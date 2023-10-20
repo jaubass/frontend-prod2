@@ -27,6 +27,7 @@ export class DaysComponent {
   public updateDays(newDays: number) {
     this.days = newDays;
   }
+  public date: Date = new Date(); // Supongamos que esta propiedad almacena la fecha.
 }
 
 
