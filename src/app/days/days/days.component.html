@@ -1,41 +1,33 @@
-
 <div class="container mt-5">
-  <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Barcelona</h5>
-        <small>1 dia de viaje</small>
+
+
+  <!-- Selector para elegir el día -->
+  <div m-2>
+    <h1>Detalles del Viaje</h1>
+    <div class="list-group">
+      <a *ngFor="let dia of viajeData" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
+        Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+      </a>
+    </div>
+  </div>
+
+
+  <div *ngFor="let dia of viajeData">
+    <div *ngIf="dia.numero_dia === days">
+      <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
+      <p>Alojamiento: {{ dia.alojamiento }}</p>
+      <p>Descripción: {{ dia.descripcion }}</p>
+      <p>Valoración: {{ dia.valoracion }}</p>
+
+      <h3>Actividades:</h3>
+      <ul>
+        <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
+      </ul>
+
+      <div *ngIf="dia.video_resumen">
+        <h3>Video Resumen:</h3>
+        <iframe width="560" height="315" [src]="dia.video_resumen" frameborder="0" allowfullscreen></iframe>
       </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-      <small></small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Nueva Delhi</h5>
-        <small class="text-muted">1 dia de viaje</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">1 dia de viaje</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">1 dia de viaje</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">1 dia de viaje</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-    </a>
+    </div>
   </div>
 </div>
