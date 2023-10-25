@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dayFilter'
+  name: 'dayPipe'
 })
 export class DayPipe implements PipeTransform {
   transform(items: any[], day: number): any[] {

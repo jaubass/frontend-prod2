@@ -3,13 +3,21 @@
 
   <!-- Selector para elegir el día -->
   <div class="mt-2">
-    <h3>Detalles del Viaje</h3>
     <div class="list-group">
       <a *ngFor="let dia of viajeData" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
         Día {{ dia.numero_dia }}: {{ dia.ciudad }}
       </a>
     </div>
   </div>
+
+<!-- Lista de días con filtros aplicados -->
+<div class="list-group mt-2">
+  <a *ngFor="let dia of viajeData | dayPipe: days" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
+    Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+  </a>
+</div>
+
+
 
   <div class="day-container mt-3">
     <div *ngFor="let dia of viajeData">
@@ -26,8 +34,16 @@
 
         <div *ngIf="dia.video_resumen">
           <h3>Video Resumen:</h3>
-          <iframe width="560" height="315" [src]="dia.video_resumen" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" [safeUrl]="dia.video_resumen" frameborder="0" allowfullscreen></iframe>
         </div>
+
+
+        <div *ngIf="dia.video_resumen">
+          <h3>Video Resumen:</h3>
+          <div>{{ dia.video_resumen | SafePipe:'url' }}</div>
+        </div>
+
+
       </div>
     </div>
   </div>
