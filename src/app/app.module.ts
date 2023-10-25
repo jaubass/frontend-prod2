@@ -12,15 +12,12 @@ import { HeroComponent } from './commons/hero/hero.component';
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-=======
     NavbarComponent,
     FooterComponent,
     DaysComponent,
     DetailComponent,
     PlayerComponent,
     HeroComponent,
->>>>>>> jau1
   ],
   imports: [
     BrowserModule
