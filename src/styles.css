@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  background-color: #e7eaf2;
+}
+
+.body-bg .body-hero {
+  background-color: #e7eaf2;
+  padding: 80px;
+  color: #000;
+  margin-bottom: 48px;
+
+}
+
+h1, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif; /* Aplica tipografia Poppins a los encabezados */
+  font-weight: 100;
+}
+h2 {
+  font-family: 'Londrina Outline', sans-serif;
+}
+
+.hero h1 {
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.hero h2 {
+  font-size: 60px;
+  line-height: 50px;
+}

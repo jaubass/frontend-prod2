@@ -1,0 +1,15 @@
+.day-container
+{
+  background-color: #fff;
+  padding: 48px;
+}
+
+.list-group-item.active {
+  background-color: #ffd400;
+  border: #ffd400;
+  color:black;
+}
+
+.day-container h2 {
+  color:#ffd400;
+}
