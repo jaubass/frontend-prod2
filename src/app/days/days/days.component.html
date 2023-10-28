@@ -33,15 +33,11 @@
         </ul>
 
         <div *ngIf="dia.video_resumen">
-          <h3>Video Resumen 1:</h3>
-          <iframe width="560" height="315" [safeUrl]="dia.video_resumen" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div *ngIf="dia.video_resumen">
-          <h3>Video Resumen 2:</h3>
-          <div>{{ dia.video_resumen | SafePipe:'url' }}</div>
-          <h3>Video Resumen 2 B:</h3>
-          <div>{{ dia.video_resumen }}</div>
+          <h3>Video Resumen:</h3>
+          <video width="320" height="240" controls>
+            <source [src]="dia.video_resumen" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
 

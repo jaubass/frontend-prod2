@@ -6,7 +6,7 @@
         "alojamiento": "Hotel París",
         "actividades": ["Visita a la Torre Eiffel","Museo del Louvre"],
         "descripcion": "Explora la hermosa ciudad de París y visita sus principales atracciones.",
-        "video_resumen": "https://www.youtube.com/embed/AQjukV3xCOw?si=ZqMn1xXzfq51wWDA",
+        "video_resumen": "/assets/video/paris.mp4",
         "valoracion": 4
       },
       {
@@ -15,7 +15,7 @@
         "alojamiento": "Hotel Roma",
         "actividades": ["Visita al Coliseo","Tour por el Vaticano"],
         "descripcion": "Descubre la historia de Roma y sus monumentos icónicos.",
-        "video_resumen": "https://www.youtube.com/embed/ZzkD03TjotA",
+        "video_resumen": "/assets/video/rome.mp4",
         "valoracion": 5
       },
       {
@@ -24,7 +24,7 @@
         "alojamiento": "Hotel Barcelona",
         "actividades": ["Paseo por La Rambla","Visita a la Sagrada Familia"],
         "descripcion": "Disfruta de la cultura y la arquitectura de Barcelona.",
-        "video_resumen": "https://www.youtube.com/embed/ZzkD03TjotA",
+        "video_resumen": "/assets/video/barcelona.mp4",
         "valoracion": 4
       },
       {
@@ -33,7 +33,7 @@
         "alojamiento": "Hotel Tokio",
         "actividades": ["Visita al Templo Senso-ji","Paseo por el Parque Ueno"],
         "descripcion": "Explora la fascinante ciudad de Tokio y sumérgete en su cultura.",
-        "video_resumen": "https://www.youtube.com/embed/ZzkD03TjotA",
+        "video_resumen": "/assets/video/tokyo.mp4",
         "valoracion": 4
       },
       {
@@ -42,7 +42,7 @@
         "alojamiento": "Hotel Nueva York",
         "actividades": ["Recorrido por Times Square","Visita al Museo Metropolitano de Arte"],
         "descripcion": "Descubre la energía de la Gran Manzana y su rica escena cultural.",
-        "video_resumen": "https://www.youtube.com/embed/ZzkD03TjotA",
+        "video_resumen": "/assets/video/newyork.mp4",
         "valoracion": 5
       },
       {
@@ -51,7 +51,7 @@
         "alojamiento": "Hotel Sídney",
         "actividades": ["Exploración de la Ópera de Sídney","Paseo por el Puente de la Bahía de Sídney"],
         "descripcion": "Disfruta de las maravillas naturales y arquitectónicas de Sídney.",
-        "video_resumen": "https://www.youtube.com/embed/ZzkD03TjotA",
+        "video_resumen": "/assets/video/sydney.mp4",
         "valoracion": 4
       }
     ]
