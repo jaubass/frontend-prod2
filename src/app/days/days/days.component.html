@@ -5,14 +5,14 @@
   <div class="mt-2">
     <h3>Detalles del Viaje</h3>
     <div class="list-group">
-      <a *ngFor="let dia of viajeData" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
+      <a *ngFor="let dia of jsonDato.viaje" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
         Día {{ dia.numero_dia }}: {{ dia.ciudad }}
       </a>
     </div>
   </div>
 
   <div class="day-container mt-3">
-    <div *ngFor="let dia of viajeData">
+    <div *ngFor="let dia of jsonDato.viaje">
       <div *ngIf="dia.numero_dia === days">
         <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
         <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
@@ -32,3 +32,4 @@
     </div>
   </div>
 </div>
+
