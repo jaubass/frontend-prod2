@@ -35,7 +35,10 @@ public updateDayFromList(selectedDay: number) {
     this.days = newDays;
   }
 
-
+  public updateFilterType(event: Event) {
+    this.filterType = (event.target as HTMLSelectElement).value;
+  }
+  
   // Datos del viaje
   jsonDato: any;
 
