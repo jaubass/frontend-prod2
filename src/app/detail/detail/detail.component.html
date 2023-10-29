@@ -16,11 +16,10 @@
             class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
             Día {{ dia.numero_dia }}: {{ dia.ciudad }}
           </a>
-          <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+          <a class="btn btn-primary2 mt-3" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
         </div>
       </div>
     </div>
-
 
     <div *ngFor="let dia of jsonDato.viaje">
       <div *ngIf="dia.numero_dia === dayNum">
