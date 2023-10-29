@@ -15,6 +15,7 @@ import { DayPipe } from '../app/days/days/day.pipe';
 import { CityPipe } from './days/days/city.pipe';
 import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SafeUrlDirective } from '../app/directives/safe.directive';
     DayPipe,
     CityPipe,
     SafePipe,
-    SafeUrlDirective
+    SafeUrlDirective,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { SafeUrlDirective } from '../app/directives/safe.directive';
       {path: '', component: DaysComponent},
       {path: 'detail', component: DetailComponent},
       {path: 'player', component: PlayerComponent},
+      {path: 'about', component: AboutComponent},
     ]),
   ],
   providers: [],
