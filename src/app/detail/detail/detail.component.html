@@ -2,24 +2,27 @@
   <div class="day-container mt-3">
     <div *ngFor="let dia of jsonDato.viaje">
       <div *ngIf="dia.numero_dia === dayNum">
-        <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
-        <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
-        <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
-        <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
-
-        <h3>Actividades:</h3>
-        <ul>
-          <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
-        </ul>
-
-        <div *ngIf="dia.video_resumen">
-          <h3>Video Resumen:</h3>
-          <video width="320" height="240" controls>
-            <source [src]="dia.video_resumen" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div class="dtitle">
+          <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
         </div>
-        <a class="btn btn-primary" href="#" role="button" aria-current="page" routerLink="/">Volver a Inicio</a>
+        <div class="body-detail">
+          <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
+          <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
+          <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
+          <h3>Actividades:</h3>
+          <ul>
+            <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
+          </ul>
+          <app-player></app-player>
+          <div *ngIf="dia.video_resumen">
+            <h3>Video Resumen:</h3>
+            <video width="320" height="240" controls>
+              <source [src]="dia.video_resumen" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <a class="btn btn-primary" href="#" role="button" aria-current="page" routerLink="/">Volver a Inicio</a>
+        </div>
       </div>
     </div>
   </div>

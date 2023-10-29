@@ -7,3 +7,19 @@
  .container {
   height: 100%;
  }
+
+ .dtitle {
+  background-color: #ffd400;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.dtitle h2 {
+  text-decoration: underline;
+}
+
+.body-detail {
+  padding: 12px;
+}
+
