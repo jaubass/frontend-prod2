@@ -25,3 +25,17 @@
   padding: 12px;
 }
 
+h3 {
+  font-family: 'Londrina Solid', sans-serif;
+  padding-top: 6px;
+}
+
+.btn-primary {
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: 100;
+}
+
+.ul {
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: 100;
+}

@@ -6,9 +6,9 @@
           <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
         </div>
         <div class="body-detail">
-          <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
-          <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
-          <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
+          <h3><span style="font-weight: 400;">Alojamiento: </span> {{ dia.alojamiento }}</h3>
+          <h3><span style="font-weight: 400;">Descripción: </span> {{ dia.descripcion }}</h3>
+          <h3><span style="font-weight: 400;">Valoración: </span> {{ dia.valoracion }}</h3>
           <h3>Actividades:</h3>
           <ul>
             <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
@@ -21,7 +21,7 @@
               Your browser does not support the video tag.
             </video>
           </div>
-          <a class="btn btn-primary" href="#" role="button" aria-current="page" routerLink="/">Volver a Inicio</a>
+          <a class="btn btn-primary" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
         </div>
       </div>
     </div>
