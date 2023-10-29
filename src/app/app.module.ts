@@ -16,6 +16,7 @@ import { CityPipe } from './days/days/city.pipe';
 import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
+import { Page404Component } from './page404/page404.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AboutComponent } from './about/about.component';
     CityPipe,
     SafePipe,
     SafeUrlDirective,
-    AboutComponent
+    AboutComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { AboutComponent } from './about/about.component';
       {path: 'detail', component: DetailComponent},
       {path: 'player', component: PlayerComponent},
       {path: 'about', component: AboutComponent},
+      {path: '**', component: Page404Component},
     ]),
   ],
   providers: [],
