@@ -10,7 +10,7 @@ import { DataService } from './../../data.service';
 export class DetailComponent {
 
   dayNum = 0;
-  jsonDato: any;
+  jsonDato: any = {viaje:[]};
 
   constructor(
     private dataService: DataService,
@@ -20,11 +20,8 @@ export class DetailComponent {
   ngOnInit(): void {
     this.dataService.getData().subscribe(data => {
       this.jsonDato = data;
-      console.log(this.jsonDato);
     });
-    this.route.params.subscribe(params => {
-      this.dayNum = Number(params['dayNum']);
-    });
+    this.dayNum = Number(this.route.snapshot.paramMap.get('dayNum'));
   }
 
 }

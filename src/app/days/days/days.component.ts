@@ -40,7 +40,7 @@ public updateDayFromList(selectedDay: number) {
   }
 
   // Datos del viaje
-  jsonDato: any;
+  jsonDato: any = {viaje:[]};
 
   constructor(private dataService: DataService) { }
 
