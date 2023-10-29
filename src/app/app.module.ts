@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { FooterComponent } from './commons/footer/footer.component';
@@ -17,6 +18,7 @@ import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -33,10 +35,12 @@ import { Page404Component } from './page404/page404.component';
     SafePipe,
     SafeUrlDirective,
     AboutComponent,
+    FilterComponent,
     Page404Component
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: DaysComponent},
@@ -50,3 +54,4 @@ import { Page404Component } from './page404/page404.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class FilterModule { }
