@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './commons/navbar/navbar.component';
@@ -32,7 +33,12 @@ import { SafeUrlDirective } from '../app/directives/safe.directive';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: DaysComponent},
+      {path: 'detail', component: DetailComponent},
+      {path: 'player', component: PlayerComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
