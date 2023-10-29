@@ -16,13 +16,14 @@
           <ul>
             <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
           </ul>
-          <app-player></app-player>
           <div *ngIf="dia.video_resumen">
             <h3>Video Resumen:</h3>
-            <video width="320" height="240" controls>
-              <source [src]="dia.video_resumen" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <a [routerLink]="videoLink">
+              <video width="320" height="240">
+                <source [src]="dia.video_resumen" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </a>
           </div>
           <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
         </div>

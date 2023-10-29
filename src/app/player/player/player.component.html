@@ -1,7 +1,14 @@
+<div class="bcont">
+  <a class="btn btn-primary" href="#" role="button" aria-current="page" [routerLink]="backLink"> X </a>
+</div>
+<div class="container mt-5">
+  <div class="day-container mt-3">
 <div *ngIf="dia.video_resumen">
   <h3>Video Resumen:</h3>
-  <video width="320" height="240" controls>
-    <source [src]="dia.video_resumen" type="video/mp4">
+  <video class="player" controls>
+    <source [src]="videoSrc" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+</div>
+</div>
 </div>

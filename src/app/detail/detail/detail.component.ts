@@ -11,6 +11,7 @@ export class DetailComponent {
 
   dayNum = 0;
   jsonDato: any = {viaje:[]};
+  videoLink: string = '';
 
   constructor(
     private dataService: DataService,
@@ -20,7 +21,10 @@ export class DetailComponent {
   ngOnInit(): void {
     this.dataService.getData().subscribe(data => {
       this.jsonDato = data;
+      this.route.params.subscribe(params => {
+        this.dayNum = Number(params['dayNum']);
+        this.videoLink = `/day/${this.dayNum}/video`;
+      });
     });
-    this.dayNum = Number(this.route.snapshot.paramMap.get('dayNum'));
   }
 }

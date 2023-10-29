@@ -1,0 +1,7 @@
+.bcont {
+    margin: 24px;
+  }
+.player {
+    max-width: 100vh;
+    max-height: 100vh;
+}

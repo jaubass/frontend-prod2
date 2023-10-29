@@ -8,12 +8,29 @@ import { DataService } from './../../data.service';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  dia: any;
 
-  constructor(private dataService: DataService) {}
+  jsonDato: any = { viaje: [] };
+  dayNum = 0;
+  dia: any = {};
+  videoSrc: string = '';
+  backLink: string = '';
+
+  constructor(
+    private dataService: DataService,
+    private readonly route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
-    // Accede al día seleccionado desde DataService
-    this.dia = this.dataService.selectedDay;
+    this.dataService.getData().subscribe(data => {
+      this.jsonDato = data;
+      this.route.params.subscribe(params => {
+        this.dayNum = Number(params['dayNum']);
+        this.dia = this.jsonDato.viaje?.find(
+          (d: any) => d.numero_dia == this.dayNum
+        ) || {};
+        this.videoSrc = this.dia.video_resumen || '';
+        this.backLink = `/day/${this.dayNum}`;
+      });
+    });
   }
 }
