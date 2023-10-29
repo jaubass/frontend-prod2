@@ -40,7 +40,7 @@ import { Page404Component } from './page404/page404.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: DaysComponent},
-      {path: 'detail', component: DetailComponent},
+      {path: 'day/:dayNum', component: DetailComponent},
       {path: 'player', component: PlayerComponent},
       {path: 'about', component: AboutComponent},
       {path: '**', component: Page404Component},
