@@ -26,7 +26,7 @@ export class PlayerComponent implements OnInit {
       this.route.params.subscribe(params => {
         this.dayNum = Number(params['dayNum']);
         this.dia = this.jsonDato.viaje?.find(
-          (d: any) => d.numero_dia == this.dayNum
+          (d: any) => d.numero_dia === this.dayNum
         ) || {};
         this.videoSrc = this.dia.video_resumen || '';
         this.backLink = `/day/${this.dayNum}`;
