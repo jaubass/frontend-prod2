@@ -1,1 +1,25 @@
-<p>detail works!</p>
+<div class="day-container mt-3">
+    <div *ngFor="let dia of jsonDato.viaje">
+      <div *ngIf="dia.numero_dia === days">
+        <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
+        <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
+        <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
+        <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
+
+        <h3>Actividades:</h3>
+        <ul>
+          <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
+        </ul>
+
+        <div *ngIf="dia.video_resumen">
+          <h3>Video Resumen:</h3>
+          <video width="320" height="240" controls>
+            <source [src]="dia.video_resumen" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
