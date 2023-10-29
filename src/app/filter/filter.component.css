@@ -1,11 +1,15 @@
 /* filter.component.css */
+.filter-container {
+  min-width: 60%;
+}
+
 .form-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 4px;
+  margin-bottom: 6px;
 }
 /* Establecer el border radius a 6px para los cuadros de búsqueda */
 input[type="text"] {
-  border-radius: 6px;
+  border-radius: 4px;
   border: 2px;
   padding-left: 6px;
 }
@@ -35,4 +39,9 @@ input[type="text"] {
   border-color: #e0bb01; /* Cambiar el color del borde a rojo en enfoque */
   box-shadow: 0 0 10px #e0bb01; /* Cambiar el color de la sombra a rojo en enfoque */
 }
+h2 {
+text-decoration: underline;
+text-decoration-color: #ffd400 ;
+}
+
 
