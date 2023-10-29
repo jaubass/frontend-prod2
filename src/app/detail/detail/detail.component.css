@@ -30,6 +30,10 @@ h3 {
   padding-top: 6px;
 }
 
+h1 {
+  font-family: 'Londrina Solid', sans-serif;
+}
+
 .btn-primary {
   font-family: 'Londrina Solid', sans-serif;
   font-weight: 100;
@@ -62,4 +66,9 @@ h3 {
   background-color: #ffd400;
   border: #ffd400;
   color:black;
+}
+
+.tcon {
+  text-decoration: underline;
+  text-decoration-color: #ffd400 ;
 }

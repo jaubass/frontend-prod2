@@ -16,14 +16,21 @@
 }
 
 .cLista {
- margin-top: 24px;
- margin-bottom: 60px;
+ margin-top: 1px;
+ margin-bottom: 10px;
 }
 
 .tcon {
-  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: #ffd400 ;
 }
 
-/* h1 {
-  font-family: 'Londrina Outline', sans-serif;
-} */
+.bucador-container {
+  margin-top: 10px;
+  margin-left: 24px;
+
+}
+h2 {
+  text-decoration: underline;
+  text-decoration-color: #ffd400 ;
+ }
