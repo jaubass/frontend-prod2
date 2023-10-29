@@ -1,7 +1,7 @@
-.day-container
-{
+.day-container {
   background-color: #fff;
-  padding: 48px;
+  padding: 24px;
+
 }
 
 .list-group-item.active {
@@ -13,4 +13,17 @@
 .day-container h2 {
   color:#000;
   font-size: 48px;
+}
+
+.cLista {
+ margin-top: 24px;
+ margin-bottom: 60px;
+}
+
+.tcon {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Londrina Outline', sans-serif;
 }

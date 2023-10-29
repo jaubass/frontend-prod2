@@ -1,25 +1,33 @@
-<div class="day-container mt-3">
+<div class="bcont">
+  <a class="btn btn-primary" href="#" role="button" aria-current="page" routerLink="/"> X </a>
+</div>
+<div class="container mt-5">
+  <div class="day-container mt-3">
     <div *ngFor="let dia of jsonDato.viaje">
-      <div *ngIf="dia.numero_dia === days">
-        <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
-        <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
-        <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
-        <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
-
-        <h3>Actividades:</h3>
-        <ul>
-          <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
-        </ul>
-
-        <div *ngIf="dia.video_resumen">
-          <h3>Video Resumen:</h3>
-          <video width="320" height="240" controls>
-            <source [src]="dia.video_resumen" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+      <div *ngIf="dia.numero_dia === dayNum">
+        <div class="dtitle">
+          <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
         </div>
-
-
+        <div class="body-detail">
+          <h3><span style="font-weight: 400;">Alojamiento: </span> {{ dia.alojamiento }}</h3>
+          <h3><span style="font-weight: 400;">Descripción: </span> {{ dia.descripcion }}</h3>
+          <h3><span style="font-weight: 400;">Valoración: </span> {{ dia.valoracion }}</h3>
+          <h3>Actividades:</h3>
+          <ul>
+            <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
+          </ul>
+          <div *ngIf="dia.video_resumen">
+            <h3>Video Resumen:</h3>
+            <a [routerLink]="videoLink">
+              <video width="320" height="240">
+                <source [src]="dia.video_resumen" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </a>
+          </div>
+          <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+        </div>
       </div>
     </div>
   </div>
+</div>

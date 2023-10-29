@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes} from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './commons/navbar/navbar.component';
@@ -15,34 +15,8 @@ import { DayPipe } from '../app/days/days/day.pipe';
 import { CityPipe } from './days/days/city.pipe';
 import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: DaysComponent,
-    // children: [
-    //   {
-    //     path: '/day/:detail',
-    //     component: DetailComponent
-    //   }
-    // ]
-  },
-  {
-    path: 'home',
-    redirectTo:'',
-    pathMatch: 'full'
-  },
-  // {
-  //   path: '/day/:detail',
-  //   component: DetailComponent
-  // },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
-];
-
+import { AboutComponent } from './about/about.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +31,19 @@ const routes: Routes = [
     CityPipe,
     SafePipe,
     SafeUrlDirective,
-    PageNotFoundComponent
+    AboutComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot([
+      {path: '', component: DaysComponent},
+      {path: 'day/:dayNum/video', component: PlayerComponent},
+      {path: 'day/:dayNum', component: DetailComponent},
+      {path: 'about', component: AboutComponent},
+      {path: '**', component: Page404Component},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

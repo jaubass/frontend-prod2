@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from './../../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from './../../data.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,23 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailComponent {
 
-  // constructor(private route: ActivatedRoute){
-  //    this.route.params.subscribe(params => console.log(params));
-  // }
+  dayNum = 0;
+  jsonDato: any = {viaje:[]};
+  videoLink: string = '';
 
-  public days: number = 1; // Por defecto, mostraremos el día 1
-
-  // Datos del viaje
-  jsonDato: any;
-
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(
+    private dataService: DataService,
+    private readonly route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.dataService.getData().subscribe(data => {
       this.jsonDato = data;
+      this.route.params.subscribe(params => {
+        this.dayNum = Number(params['dayNum']);
+        this.videoLink = `/day/${this.dayNum}/video`;
+      });
     });
-    this.route.params.subscribe(params => console.log(params));
-    // this.days=params['days']
   }
-
 }

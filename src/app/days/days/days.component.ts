@@ -11,11 +11,11 @@ import { DataService } from './../../data.service';
 
 export class DaysComponent {
   public selectedCity: string = '';
-  public days: number = 1; // Por defecto, mostraremos el día 1
+  public days: number = 0; // Por defecto, no mostrar ningún día
   public date: Date = new Date();
   public cityFilter: string = ''
   public items: any[] = [];
-  public selectedDay: number = 1; // Por defecto, se muestra el día 1
+  public selectedDay: number = 0; // Por defecto, no mostrar ningún día
   public filterType: string = 'day';
   public detail: number = 1;
 
@@ -41,9 +41,9 @@ public updateDayFromList(selectedDay: number) {
   public updateFilterType(event: Event) {
     this.filterType = (event.target as HTMLSelectElement).value;
   }
-  
+
   // Datos del viaje
-  jsonDato: any;
+  jsonDato: any = {viaje:[]};
 
   constructor(private dataService: DataService) { }
 
