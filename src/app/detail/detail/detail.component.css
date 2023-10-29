@@ -16,7 +16,9 @@
 }
 
 .dtitle h2 {
-  text-decoration: underline;
+  font-family: 'Londrina Solid', sans-serif;
+  color: beige;
+  padding-top: 10px;
 }
 
 .body-detail {
