@@ -3,7 +3,7 @@
   <h1>Días del Viaje</h1>
 
   <!-- Selector para elegir el día -->
-  <div class="mt-2">
+  <div class="cLista">
     <div class="list-group">
       <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
         class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
