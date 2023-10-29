@@ -27,9 +27,11 @@
           <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
         </div>
         <div class="body-detail">
-          <h3><span style="font-weight: 400;">Alojamiento: </span> {{ dia.alojamiento }}</h3>
-          <h3><span style="font-weight: 400;">Descripción: </span> {{ dia.descripcion }}</h3>
-          <h3><span style="font-weight: 400;">Valoración: </span> {{ dia.valoracion }}</h3>
+          <div class="container-span">
+            <h3><span style="font-weight: 400;">Alojamiento: </span> {{ dia.alojamiento }}</h3>
+            <h3><span style="font-weight: 400;">Descripción: </span> {{ dia.descripcion }}</h3>
+            <h3><span style="font-weight: 400;">Valoración: </span> {{ dia.valoracion }}</h3>
+          </div>
           <h3>Actividades:</h3>
           <ul>
             <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
