@@ -31,4 +31,8 @@ input[type="text"] {
   background-color: #e0bb01;
 }
 
+.form-control:focus {
+  border-color: #e0bb01; /* Cambiar el color del borde a rojo en enfoque */
+  box-shadow: 0 0 10px #e0bb01; /* Cambiar el color de la sombra a rojo en enfoque */
+}
 
