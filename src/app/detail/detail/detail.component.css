@@ -57,3 +57,9 @@ h3 {
   font-family: 'Londrina Solid', sans-serif;
   font-weight: 100;
 }
+
+.list-group-item.active {
+  background-color: #ffd400;
+  border: #ffd400;
+  color:black;
+}
