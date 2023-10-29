@@ -17,7 +17,6 @@ export class DaysComponent {
   public items: any[] = [];
   public selectedDay: number = 0; // Por defecto, no mostrar ningún día
   public filterType: string = 'day';
-  public detail: number = 1;
 
 
   // Método para actualizar el día seleccionado
@@ -28,14 +27,12 @@ export class DaysComponent {
   // Método para actualizar el día seleccionado desde la lista
 public updateDayFromList(selectedDay: number) {
   this.days = selectedDay;
-  // this.detail =selectedDay;
 }
 
 
   // Método para actualizar la cantidad de días
   public updateDays(newDays: number) {
     this.days = newDays;
-    this.detail =newDays;
   }
 
   public updateFilterType(event: Event) {
