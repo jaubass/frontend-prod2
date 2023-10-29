@@ -1,15 +1,21 @@
 <app-hero></app-hero>
-<div class="container mt-3">
-  <div class="tcon">
-    <h1>Días del Viaje</h1>
-  </div>
-  <!-- Selector para elegir el día -->
-  <div class="cLista">
-    <div class="list-group">
-      <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
-        class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
-        Día {{ dia.numero_dia }}: {{ dia.ciudad }}
-      </a>
+<div class="container mt-3 d-flex flex-wrap">
+  <div class="me-3">
+    <div class="tcon">
+      <h1>Días del Viaje</h1>
     </div>
+    <!-- Selector para elegir el día -->
+    <div class="cLista">
+      <div class="list-group">
+        <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
+          class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
+          Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="">
+      <h2>Buscador</h2>
+      <div>TODO: AQUÍ EL CUADRO DE BÚSQUEDAS</div>
   </div>
 </div>
