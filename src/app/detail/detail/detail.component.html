@@ -6,18 +6,20 @@
   <div class="day-container mt-3 d-flex flex-wrap">
 
     <div class="me-5 mb-5">
-      <div class="tcon"><h1>Días del Viaje</h1></div>
+      <div class="tcon">
+        <h1>Días del Viaje</h1>
+      </div>
       <!-- Selector para elegir el día -->
       <div class="cLista">
         <div class="list-group">
           <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
-          class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
-          Día {{ dia.numero_dia }}: {{ dia.ciudad }}
-        </a>
-        <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+            class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
+            Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+          </a>
+          <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+        </div>
       </div>
     </div>
-  </div>
 
 
     <div *ngFor="let dia of jsonDato.viaje">
