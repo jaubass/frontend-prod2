@@ -19,20 +19,24 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: DaysComponent,
-    children: [
-      {
-        path: 'detail',
-        component: DetailComponent
-      }
-    ]
+    // children: [
+    //   {
+    //     path: '/day/:detail',
+    //     component: DetailComponent
+    //   }
+    // ]
   },
   {
-    path: '',
-    redirectTo:'/home',
+    path: 'home',
+    redirectTo:'',
     pathMatch: 'full'
   },
+  // {
+  //   path: '/day/:detail',
+  //   component: DetailComponent
+  // },
   {
     path: '**',
     component: PageNotFoundComponent

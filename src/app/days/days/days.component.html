@@ -4,7 +4,7 @@
   <!-- Selector para elegir el día -->
   <div class="mt-2">
     <div class="list-group">
-      <a routerLink="detail" *ngFor="let dia of jsonDato.viaje" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
+      <a [routerLink]="['day',detail]" *ngFor="let dia of jsonDato.viaje" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
         Día {{ dia.numero_dia }}: {{ dia.ciudad }}
       </a>
     </div>
@@ -13,7 +13,7 @@
 <!-- Lista de días con filtros aplicados -->
 <div class="list-group mt-2">
   <a *ngFor="let dia of jsonDato.viaje | dayPipe: days" (click)="updateDayFromList(dia.numero_dia)" class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
-    Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+    Día {{ dia.numero_dia }}: {{ dia.ciudad }} {{ detail }}
   </a>
 </div>
 

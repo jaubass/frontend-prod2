@@ -17,6 +17,7 @@ export class DaysComponent {
   public items: any[] = [];
   public selectedDay: number = 1; // Por defecto, se muestra el día 1
   public filterType: string = 'day';
+  public detail: number = 1;
 
 
   // Método para actualizar el día seleccionado
@@ -27,12 +28,14 @@ export class DaysComponent {
   // Método para actualizar el día seleccionado desde la lista
 public updateDayFromList(selectedDay: number) {
   this.days = selectedDay;
+  // this.detail =selectedDay;
 }
 
 
   // Método para actualizar la cantidad de días
   public updateDays(newDays: number) {
     this.days = newDays;
+    this.detail =newDays;
   }
 
   public updateFilterType(event: Event) {
@@ -46,7 +49,7 @@ public updateDayFromList(selectedDay: number) {
 
   ngOnInit(): void {
     this.dataService.getData().subscribe(data => {
-      this.jsonDato = data;
+    this.jsonDato = data;
     });
   }
 
