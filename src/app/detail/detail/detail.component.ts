@@ -23,5 +23,4 @@ export class DetailComponent {
     });
     this.dayNum = Number(this.route.snapshot.paramMap.get('dayNum'));
   }
-
 }

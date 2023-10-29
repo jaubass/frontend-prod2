@@ -3,57 +3,12 @@
   <h1>Días del Viaje</h1>
 
   <!-- Selector para elegir el día -->
-  <h3>TODO: Selector para elegir el día. ENRUTANDO</h3>
   <div class="mt-2">
     <div class="list-group">
       <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
         class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
         Día {{ dia.numero_dia }}: {{ dia.ciudad }}
       </a>
-    </div>
-  </div>
-  <!-- Selector para elegir el día -->
-  <h3>TODO: Selector para elegir el día. ORIGINAL</h3>
-  <div class="mt-2">
-    <div class="list-group">
-      <a *ngFor="let dia of jsonDato.viaje" (click)="updateDayFromList(dia.numero_dia)"
-        class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
-        Día {{ dia.numero_dia }}: {{ dia.ciudad }}
-      </a>
-    </div>
-  </div>
-
-  <!-- Lista de días con filtros aplicados -->
-  <div class="list-group mt-2">
-    <a *ngFor="let dia of jsonDato.viaje | dayPipe: days" (click)="updateDayFromList(dia.numero_dia)"
-      class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
-      Día {{ dia.numero_dia }}: {{ dia.ciudad }}
-    </a>
-  </div>
-
-
-<hr><h1>TODO: LA PARTE DE AQUÍ ABAJO DEBE IR EN LOS OTROS COMPONENTES</h1><hr>
-  <div class="day-container mt-3">
-    <div *ngFor="let dia of jsonDato.viaje">
-      <div *ngIf="dia.numero_dia === days">
-        <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
-        <p><span style="font-weight: 600;">Alojamiento: </span> {{ dia.alojamiento }}</p>
-        <p><span style="font-weight: 600;">Descripción: </span> {{ dia.descripcion }}</p>
-        <p><span style="font-weight: 600;">Valoración: </span> {{ dia.valoracion }}</p>
-
-        <h3>Actividades:</h3>
-        <ul>
-          <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
-        </ul>
-
-        <div *ngIf="dia.video_resumen">
-          <h3>Video Resumen:</h3>
-          <video width="320" height="240" controls>
-            <source [src]="dia.video_resumen" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
     </div>
   </div>
 </div>
