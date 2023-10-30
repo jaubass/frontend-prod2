@@ -45,6 +45,10 @@ testem.log
 .pnp.*
 yarn.lock
 
+# codesandbox
+.codesandbox/*
+.devcontainer/*
+
 # System files
 .DS_Store
 Thumbs.db
