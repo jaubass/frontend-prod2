@@ -8,13 +8,11 @@ export class CityPipe implements PipeTransform {
     if (!items || !searchTerm) {
       return items;
     }
-
     searchTerm = searchTerm.toLowerCase();
-    console.log(searchTerm);
-    console.log(items[0].ciudad);
-    
-    
-    return items.filter(item => item.ciudad && item.ciudad.toLowerCase().includes(searchTerm));
-    // item.cuidad && item.cuidad.toLowerCase().includes(searchTerm)
+
+    return items.filter(
+      item => item.ciudad && item.ciudad.toLowerCase()
+        .includes(searchTerm)
+    );
   }
 }
