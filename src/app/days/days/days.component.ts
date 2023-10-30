@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-//import { FormsModule } from '@angular/forms';
-//import { SafeUrlDirective } from '../../directives/safe.directive';
 import { DataService } from './../../data.service';
 
 @Component({
@@ -15,11 +13,10 @@ export class DaysComponent {
   public date: Date = new Date();
   public cityFilter: string = ''
   public items: any[] = [];
-  public selectedDay: number = 0; // Por defecto, no mostrar ningún día
+  public selectedDay: number | null = null; // Por defecto, no mostrar ningún día
   public filterType: string = 'day';
-
-
-
+  // Datos del viaje
+  public jsonDato: any = { viaje: [] };
 
   // Método para actualizar el día seleccionado
   public updateDay(event: Event) {
@@ -27,10 +24,9 @@ export class DaysComponent {
   }
 
   // Método para actualizar el día seleccionado desde la lista
-public updateDayFromList(selectedDay: number) {
-  this.days = selectedDay;
-}
-
+  public updateDayFromList(selectedDay: number) {
+    this.days = selectedDay;
+  }
 
   // Método para actualizar la cantidad de días
   public updateDays(newDays: number) {
@@ -41,14 +37,11 @@ public updateDayFromList(selectedDay: number) {
     this.filterType = (event.target as HTMLSelectElement).value;
   }
 
-  // Datos del viaje
-  jsonDato: any = {viaje:[]};
-
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.getData().subscribe(data => {
-    this.jsonDato = data;
+      this.jsonDato = data;
     });
   }
 
