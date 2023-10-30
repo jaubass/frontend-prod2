@@ -68,7 +68,7 @@
             },
             "development": {
               "browserTarget": "frontend-prod1:build:development",
-              "disableHostCheck": false
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"
