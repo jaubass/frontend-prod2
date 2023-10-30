@@ -19,6 +19,8 @@ export class DaysComponent {
   public filterType: string = 'day';
 
 
+
+
   // Método para actualizar el día seleccionado
   public updateDay(event: Event) {
     this.days = parseInt((event.target as HTMLSelectElement).value, 10);

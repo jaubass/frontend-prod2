@@ -4,10 +4,17 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'cityPipe'
 })
 export class CityPipe implements PipeTransform {
-  transform(items: any[], city: string): any[] {
-    if (!items) return [];
-    if (!city) return items;
+  transform(items: any[], searchTerm: string): any[] {
+    if (!items || !searchTerm) {
+      return items;
+    }
 
-    return items.filter(item => item.ciudad.toLowerCase().includes(city.toLowerCase()));
+    searchTerm = searchTerm.toLowerCase();
+    console.log(searchTerm);
+    console.log(items[0].ciudad);
+    
+    
+    return items.filter(item => item.ciudad && item.ciudad.toLowerCase().includes(searchTerm));
+    // item.cuidad && item.cuidad.toLowerCase().includes(searchTerm)
   }
 }

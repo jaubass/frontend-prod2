@@ -18,7 +18,6 @@ import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
-import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { FilterComponent } from './filter/filter.component';
     SafePipe,
     SafeUrlDirective,
     AboutComponent,
-    FilterComponent,
     Page404Component
   ],
   imports: [
