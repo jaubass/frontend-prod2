@@ -48,6 +48,7 @@ yarn.lock
 # codesandbox
 .codesandbox/*
 .devcontainer/*
+.editorconfig
 
 # System files
 .DS_Store
