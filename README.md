@@ -1,8 +1,8 @@
-# Producto 1 - MI VIAJE
-## FrontendProd1
+# Producto 2 - MI VIAJE
+## FrontendProd2
 > FP.067 Desarrollo front-end con frameworks en entornos móviles
 
-https://github.com/xavi-mat/frontend-prod1
+https://github.com/jaubass/frontend-prod2
 
 ## Equipo Code067
 * Jaume Fité Planes
@@ -10,4 +10,4 @@ https://github.com/xavi-mat/frontend-prod1
 * Giancarlo Spadolini Zucchiatti
 * Xavier Matoses Meseguer
 
-Octubre 2023
+Noviembre 2023
