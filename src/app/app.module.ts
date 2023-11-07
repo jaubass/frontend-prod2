@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { FooterComponent } from './commons/footer/footer.component';
@@ -18,6 +19,8 @@ import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { Page404Component } from './page404/page404.component';
       {path: 'about', component: AboutComponent},
       {path: '**', component: Page404Component},
     ]),
+    
+    provideFirebaseApp(() => initializeApp({"projectId":"frontend-5088a","appId":"1:417204717894:web:2c5f8e35bdc24eb13f3d47","storageBucket":"frontend-5088a.appspot.com","apiKey":"AIzaSyCnToeV7j7Z8PQoJcY0NNBpG6hiB8GboIY","authDomain":"frontend-5088a.firebaseapp.com","messagingSenderId":"417204717894"})),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
