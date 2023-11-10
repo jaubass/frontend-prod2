@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environments';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
       {path: 'about', component: AboutComponent},
       {path: '**', component: Page404Component},
     ]),
-    provideFirebaseApp(() => initializeApp({"projectId":"code67-prod2","appId":"1:760374712131:web:03638612b91b36f27c41f6","storageBucket":"code67-prod2.appspot.com","apiKey":"AIzaSyAmguoSO3XGG2PRjb_b9_x6YrmV9HF0Qmw","authDomain":"code67-prod2.firebaseapp.com","messagingSenderId":"760374712131"})),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],
   providers: [],
