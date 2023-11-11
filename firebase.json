@@ -1,1 +1,13 @@
-{}
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": [
+    {
+      "target": "frontend-prod1",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

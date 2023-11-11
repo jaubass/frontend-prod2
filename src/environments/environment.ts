@@ -1,5 +1,4 @@
 export const environment = {
-    production: false,
    firebase: {
     apiKey: "AIzaSyCnToeV7j7Z8PQoJcY0NNBpG6hiB8GboIY",
     authDomain: "frontend-5088a.firebaseapp.com",
@@ -7,5 +6,6 @@ export const environment = {
     storageBucket: "frontend-5088a.appspot.com",
     messagingSenderId: "417204717894",
     appId: "1:417204717894:web:2c5f8e35bdc24eb13f3d47"
-   }
+   },
+   production: false
 };
