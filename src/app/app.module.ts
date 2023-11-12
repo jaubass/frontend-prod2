@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AddDestinoComponent } from './add-destino/add-destino.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     SafePipe,
     SafeUrlDirective,
     AboutComponent,
-    Page404Component
+    Page404Component,
+    AddDestinoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
       {path: 'day/:dayNum/video', component: PlayerComponent},
       {path: 'day/:dayNum', component: DetailComponent},
       {path: 'about', component: AboutComponent},
+      {path: 'addDestino', component: AddDestinoComponent},
       {path: '**', component: Page404Component},
     ]),
-    
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp({"projectId":"frontend-5088a","appId":"1:417204717894:web:2c5f8e35bdc24eb13f3d47","storageBucket":"frontend-5088a.appspot.com","apiKey":"AIzaSyCnToeV7j7Z8PQoJcY0NNBpG6hiB8GboIY","authDomain":"frontend-5088a.firebaseapp.com","messagingSenderId":"417204717894"})),
     provideFirestore(() => getFirestore()),
   ],
