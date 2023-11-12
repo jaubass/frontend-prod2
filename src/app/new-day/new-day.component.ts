@@ -34,7 +34,7 @@ export class NewDayComponent {
     console.log('Video Resumen:', this.videoResumen);
     console.log('Valoración:', this.valoracion);
 
-    // Aquí podrías, por ejemplo, enviar los datos a un servicio o hacer alguna operación con ellos
+    // TODO: enviar los datos a un servicio o hacer alguna operación con ellos
   }
 }
 
