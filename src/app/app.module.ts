@@ -21,6 +21,7 @@ import { Page404Component } from './page404/page404.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environments';
+import { NewDayComponent } from './new-day/new-day.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { environment } from '../environments/environments';
     SafePipe,
     SafeUrlDirective,
     AboutComponent,
-    Page404Component
+    Page404Component,
+    NewDayComponent
   ],
   imports: [
     BrowserModule,
