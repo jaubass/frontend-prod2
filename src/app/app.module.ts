@@ -23,7 +23,7 @@ import { Page404Component } from './page404/page404.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AddDestinoComponent } from './add-destino/add-destino.component';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
