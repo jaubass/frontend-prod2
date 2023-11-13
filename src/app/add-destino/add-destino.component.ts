@@ -16,7 +16,7 @@ export class AddDestinoComponent {
       numero_dia: new FormControl(),
       ciudad: new FormControl(),
       alojamiento: new FormControl(),
-      actividades: new FormControl(),
+      actividades: new FormControl(''), // Utiliza un string en lugar de un array
       descripcion: new FormControl(),
       video_resumen: new FormControl(),
       valoracion: new FormControl(),
@@ -25,7 +25,11 @@ export class AddDestinoComponent {
   }
 
   async onSubmit() {
-    console.log(this.formulario.value)
+    // Divide el valor del textarea por salto de línea
+    const actividadesArray = this.formulario.value.actividades.split('\n');
+    this.formulario.patchValue({ actividades: actividadesArray }); 
+
+    console.log(this.formulario.value);
     const response = await this.dataService.addDestino(this.formulario.value);
     console.log(response);
     this.resetForm();
