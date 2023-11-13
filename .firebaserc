@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "frontend-5088a"
+  },
+  "targets": {
+    "frontend-5088a": {
+      "hosting": {
+        "frontend-prod1": [
+          "frontend-5088a"
+        ]
+      }
+    }
+  }
+}

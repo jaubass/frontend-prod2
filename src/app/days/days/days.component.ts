@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './../../data.service';
+import Dato from 'src/app/data.interface';
 
 @Component({
   selector: 'app-days',
@@ -40,9 +41,14 @@ export class DaysComponent {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(data => {
-      this.jsonDato = data;
+    this.dataService.getDestino().subscribe(data => {
+    this.jsonDato = data;
     });
+  }
+  
+  async onClickDelete(dato: Dato){
+    const response = await this.dataService.deleteDestino(dato);
+    console.log(response);
   }
 
 }
