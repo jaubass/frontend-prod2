@@ -19,7 +19,7 @@ export class DetailComponent {
   ) { }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(data => {
+    this.dataService.getDestino().subscribe(data => {
       this.jsonDato = data;
       this.route.params.subscribe(params => {
         this.dayNum = Number(params['dayNum']);

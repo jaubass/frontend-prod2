@@ -1,0 +1,12 @@
+<form  [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="container w-25">
+        <input class="form-control" type="number" formControlName="numero_dia" placeholder="numero_día" min="0">
+        <input class="form-control" type="text" formControlName="ciudad" placeholder="ciudad">
+        <input class="form-control" type="text" formControlName="alojamiento" placeholder="alojamiento">
+        <input class="form-control" type="text" formControlName="actividades" placeholder="actividades">
+        <input class="form-control" type="text" formControlName="descripcion" placeholder="descripcion">
+        <input class="form-control" type="text" formControlName="video_resumen" placeholder="video_resumen">
+        <input class="form-control" type="number" formControlName="valoracion" placeholder="valoración" min="0" max="5">
+        <input class="btn btn-info mt-2" type="submit" value="Agregar">
+    </div>
+</form>

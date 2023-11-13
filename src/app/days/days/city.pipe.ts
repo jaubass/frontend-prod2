@@ -8,11 +8,10 @@ export class CityPipe implements PipeTransform {
     if (!items || !searchTerm) {
       return items;
     }
-    searchTerm = searchTerm.toLowerCase();
+    searchTerm = searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     return items.filter(
-      item => item.ciudad && item.ciudad.toLowerCase()
-        .includes(searchTerm)
+      item => item.ciudad && item.ciudad.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchTerm)
     );
   }
 }
