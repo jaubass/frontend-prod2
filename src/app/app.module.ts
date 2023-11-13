@@ -55,7 +55,6 @@ import { environment } from '../environments/environment';
       {path: '**', component: Page404Component},
     ]),
     ReactiveFormsModule,
-    // provideFirebaseApp(() => initializeApp({"projectId":"frontend-5088a","appId":"1:417204717894:web:2c5f8e35bdc24eb13f3d47","storageBucket":"frontend-5088a.appspot.com","apiKey":"AIzaSyCnToeV7j7Z8PQoJcY0NNBpG6hiB8GboIY","authDomain":"frontend-5088a.firebaseapp.com","messagingSenderId":"417204717894"})),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],
