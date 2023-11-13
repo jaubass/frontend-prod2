@@ -8,16 +8,16 @@
     <!-- Selector para elegir el día -->
     <div class="cLista">
       <div class="list-group">
-        <div *ngFor="let dia of jsonDato | cityPipe: selectedCity | dayPipe:selectedDay" 
+        <div *ngFor="let dia of jsonDato | cityPipe: selectedCity | dayPipe:selectedDay"
         class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === days}">
         <a class="list-group-item list-group-item-action"  routerLink="/day/{{ dia.numero_dia }}">
-          Día {{ dia.numero_dia }}: {{ dia.ciudad }} 
+          Día {{ dia.numero_dia }}: {{ dia.ciudad }}
         </a>
-        <button class="btn btn-danger mt-2" (click)="onClickDelete(dia)">Eliminar</button>
+        <button class="btn btn-delete mt-2" (click)="onClickDelete(dia)">Eliminar</button>
         </div>
-      
+
         <form>
-          <a routerLink="/addDestino" class="list-group-item list-group-item-action mt-2">Agregar destino</a>
+          <a routerLink="/addDestino" class="list-group-item list-group-item-action mt-2 btn-agregar">Agregar destino</a>
         </form>
       </div>
     </div>
