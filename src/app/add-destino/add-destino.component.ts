@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from './../data.service';
 
 @Component({
@@ -10,29 +10,38 @@ import { DataService } from './../data.service';
 export class AddDestinoComponent {
 
   formulario: FormGroup;
+  mensaje: string = '';
 
-  constructor(private dataService: DataService) {
-    this.formulario = new FormGroup({
-      numero_dia: new FormControl(),
-      ciudad: new FormControl(),
-      alojamiento: new FormControl(),
-      actividades: new FormControl(''), // Utiliza un string en lugar de un array
-      descripcion: new FormControl(),
-      video_resumen: new FormControl(),
-      valoracion: new FormControl(),
-      id: new FormControl('')
-    })
+  constructor(private formBuilder: FormBuilder, private dataService: DataService) {
+    this.formulario = this.formBuilder.group({
+      numero_dia: ['', Validators.required],
+      ciudad: ['', Validators.required],
+      alojamiento: ['', Validators.required],
+      actividades: [''],
+      descripcion: ['', Validators.required],
+      video_resumen: ['', Validators.required],
+      valoracion: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
+    });
   }
 
   async onSubmit() {
-    // Divide el valor del textarea por salto de línea
     const actividadesArray = this.formulario.value.actividades.split('\n');
-    this.formulario.patchValue({ actividades: actividadesArray }); 
+    this.formulario.patchValue({ actividades: actividadesArray });
 
-    console.log(this.formulario.value);
-    const response = await this.dataService.addDestino(this.formulario.value);
-    console.log(response);
-    this.resetForm();
+    if (this.formulario.valid) {
+      const response = await this.dataService.addDestino(this.formulario.value);
+
+      if (response) {
+        this.mensaje = '¡Datos agregados correctamente!';
+      } else {
+        this.mensaje = 'Error al agregar los datos. Por favor, intenta nuevamente.';
+        console.error('Error al enviar los datos a Firebase');
+      }
+
+      this.resetForm();
+    } else {
+      this.mensaje = 'Por favor, completa correctamente los campos requeridos.';
+    }
   }
 
   resetForm() {

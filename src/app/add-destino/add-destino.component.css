@@ -1,5 +1,5 @@
 .form-container {
-  margin: 120px auto;
+  margin: 70px auto;
 }
 
 .form-title {
@@ -17,4 +17,16 @@
 
 .btn-info {
   margin-left: 8px;
+}
+
+.form-title h2 {
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 48px;
+  color: #ffd400;
+  margin-top: 48px;
+}
+
+.form-alert {
+  margin: 12px;
+  color: black;
 }
