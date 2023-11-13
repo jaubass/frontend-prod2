@@ -18,6 +18,10 @@ import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environments';
+import { NewDayComponent } from './new-day/new-day.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { Page404Component } from './page404/page404.component';
     SafePipe,
     SafeUrlDirective,
     AboutComponent,
-    Page404Component
+    Page404Component,
+    NewDayComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,8 @@ import { Page404Component } from './page404/page404.component';
       {path: 'about', component: AboutComponent},
       {path: '**', component: Page404Component},
     ]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
