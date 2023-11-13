@@ -12,7 +12,7 @@
       <!-- Selector para elegir el día -->
       <div class="cLista">
         <div class="list-group">
-          <a *ngFor="let dia of jsonDato.viaje" routerLink="/day/{{ dia.numero_dia }}"
+          <a *ngFor="let dia of jsonDato" routerLink="/day/{{ dia.numero_dia }}"
             class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
             Día {{ dia.numero_dia }}: {{ dia.ciudad }}
           </a>
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div *ngFor="let dia of jsonDato.viaje">
+    <div *ngFor="let dia of jsonDato">
       <div *ngIf="dia.numero_dia === dayNum">
         <div class="dtitle">
           <h2>Día {{ dia.numero_dia }}: {{ dia.ciudad }}</h2>
