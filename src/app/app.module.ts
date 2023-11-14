@@ -24,6 +24,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AddDestinoComponent } from './add-destino/add-destino.component';
 import { environment } from '../environments/environment';
+import { EditDayComponent } from './edit-day/edit-day.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { environment } from '../environments/environment';
     SafeUrlDirective,
     AboutComponent,
     Page404Component,
-    AddDestinoComponent
+    AddDestinoComponent,
+    EditDayComponent
   ],
   imports: [
     BrowserModule,
