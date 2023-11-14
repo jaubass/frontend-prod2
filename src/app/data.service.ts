@@ -44,6 +44,10 @@ export class DataService {
     return deleteDoc(datoDocRef);
   } 
 
+  updateDestino(){
+    
+  }
+
 
   getData(): Observable<any> {
     return this.http.get('/assets/data.json');

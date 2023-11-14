@@ -51,4 +51,11 @@ export class DaysComponent {
     console.log(response);
   }
 
+  // async onClickUpdate(dato: Dato){
+  //   const response = await this.dataService.getDestino().subscribe(data => {
+  //     this.jsonDato = data;
+  //     });
+  //   console.log(response);
+  // }
+
 }
