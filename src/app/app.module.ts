@@ -51,7 +51,7 @@ import { environment } from '../environments/environment';
       {path: 'day/:dayNum/video', component: PlayerComponent},
       {path: 'day/:dayNum', component: DetailComponent},
       {path: 'about', component: AboutComponent},
-      {path: 'addDestino', component: AddDestinoComponent},
+      {path: 'add-day', component: AddDestinoComponent},
       {path: '**', component: Page404Component},
     ]),
     ReactiveFormsModule,

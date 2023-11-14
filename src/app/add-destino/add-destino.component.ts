@@ -29,7 +29,7 @@ export class AddDestinoComponent {
     this.formulario.patchValue({ actividades: actividadesArray });
 
     if (this.formulario.valid) {
-      const response = await this.dataService.addDestino(this.formulario.value);
+      const response = await this.dataService.addDay(this.formulario.value);
 
       if (response) {
         this.mensaje = '¡Datos agregados correctamente!';

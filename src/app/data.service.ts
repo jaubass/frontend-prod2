@@ -13,7 +13,7 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@
 export class DataService {
   public selectedDaySubject = new Subject<number>();
   public selectedDay: number = 0; // Agrega esta propiedad
- 
+
 
 
   setSelectedDay(day: number) {
@@ -29,7 +29,7 @@ export class DataService {
 
   constructor(private http: HttpClient, private firestore: Firestore) { }
 
-  addDestino(dato: Dato) {
+  addDay(dato: Dato) {
     const datoRef = collection(this.firestore, 'data');
     return addDoc(datoRef, dato);
   }
@@ -38,11 +38,11 @@ export class DataService {
     const datoRef = collection(this.firestore, 'data');
     return collectionData(datoRef, { idField: 'id'}) as Observable<Dato[]>;
   }
-  
+
   deleteDestino(dato: Dato) {
     const datoDocRef = doc(this.firestore, `data/${dato.id}`);
     return deleteDoc(datoDocRef);
-  } 
+  }
 
 
   getData(): Observable<any> {
