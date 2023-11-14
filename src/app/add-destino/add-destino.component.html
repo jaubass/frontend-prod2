@@ -1,12 +1,48 @@
-<form  [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="container w-25">
-        <input class="form-control" type="number" formControlName="numero_dia" placeholder="numero_día" min="0">
-        <input class="form-control" type="text" formControlName="ciudad" placeholder="ciudad">
-        <input class="form-control" type="text" formControlName="alojamiento" placeholder="alojamiento">
-        <input class="form-control" type="text" formControlName="actividades" placeholder="actividades">
-        <input class="form-control" type="text" formControlName="descripcion" placeholder="descripcion">
-        <input class="form-control" type="text" formControlName="video_resumen" placeholder="video_resumen">
-        <input class="form-control" type="number" formControlName="valoracion" placeholder="valoración" min="0" max="5">
+<div class="form-title">
+  <h2>Añade un día de tu viaje</h2>
+</div>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="container form-container w-25">
+        <input class="form-control" type="number" formControlName="numero_dia" placeholder="Número de día" min="0">
+        <div *ngIf="formulario.get('numero_dia')?.hasError('required') && formulario.get('numero_dia')?.touched" class="error-message">
+          Número de día es requerido
+        </div>
+
+        <input class="form-control" type="text" formControlName="ciudad" placeholder="Ciudad">
+        <div *ngIf="formulario.get('ciudad')?.hasError('required') && formulario.get('ciudad')?.touched" class="error-message">
+          Ciudad es requerida
+        </div>
+
+        <input class="form-control" type="text" formControlName="alojamiento" placeholder="Alojamiento">
+        <div *ngIf="formulario.get('alojamiento')?.hasError('required') && formulario.get('alojamiento')?.touched" class="error-message">
+          Alojamiento es requerido
+        </div>
+
+        <textarea class="form-control" formControlName="actividades" placeholder="Actividades, separar por un salto de línea"></textarea>
+
+        <input class="form-control" type="text" formControlName="descripcion" placeholder="Descripción">
+        <div *ngIf="formulario.get('descripcion')?.hasError('required') && formulario.get('descripcion')?.touched" class="error-message">
+          Descripción es requerida
+        </div>
+
+        <input class="form-control" type="text" formControlName="video_resumen" placeholder="URL del video">
+        <div *ngIf="formulario.get('video_resumen')?.hasError('required') && formulario.get('video_resumen')?.touched" class="error-message">
+          URL del video es requerida
+        </div>
+
+        <input class="form-control" type="number" formControlName="valoracion" placeholder="Valoración" min="0" max="5">
+        <div *ngIf="formulario.get('valoracion')?.hasError('required') && formulario.get('valoracion')?.touched" class="error-message">
+          Valoración es requerida
+        </div>
+        <div *ngIf="(formulario.get('valoracion')?.hasError('min') || formulario.get('valoracion')?.hasError('max')) && formulario.get('valoracion')?.touched" class="error-message">
+          Valoración debe estar entre 0 y 5
+        </div>
+
         <input class="btn btn-info mt-2" type="submit" value="Agregar">
+
+        <div class="form-alert">
+          <p *ngIf="mensaje">{{ mensaje }}</p>
+        </div>
     </div>
 </form>

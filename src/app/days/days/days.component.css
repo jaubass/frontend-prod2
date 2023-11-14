@@ -25,6 +25,28 @@
   text-decoration-color: #ffd400 ;
 }
 
+.btn-delete {
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: 200;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: #EF233C;
+}
+
+.btn-agregar {
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: 400;
+  color: 000;
+  font-size: 16px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 6px;
+  background-color: #ffd400;
+}
+
 .bucador-container {
   margin-top: 10px;
   margin-left: 24px;
