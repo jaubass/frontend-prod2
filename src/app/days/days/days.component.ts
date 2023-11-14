@@ -42,6 +42,7 @@ export class DaysComponent {
 
   ngOnInit(): void {
     this.dataService.getDestino().subscribe(data => {
+      data.sort((a, b) => a.numero_dia - b.numero_dia);
       this.jsonDato = data;
     });
   }

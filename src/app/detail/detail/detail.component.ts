@@ -20,6 +20,7 @@ export class DetailComponent {
 
   ngOnInit(): void {
     this.dataService.getDestino().subscribe(data => {
+      data.sort((a, b) => a.numero_dia - b.numero_dia);
       this.jsonDato = data;
       this.route.params.subscribe(params => {
         this.dayNum = Number(params['dayNum']);
