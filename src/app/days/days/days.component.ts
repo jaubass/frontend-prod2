@@ -17,7 +17,7 @@ export class DaysComponent {
   public selectedDay: number | null = null; // Por defecto, no mostrar ningún día
   public filterType: string = 'day';
   // Datos del viaje
-  public jsonDato: any = { viaje: [] };
+  public jsonDato: Array<any> = [];
 
   // Método para actualizar el día seleccionado
   public updateDay(event: Event) {
@@ -42,11 +42,11 @@ export class DaysComponent {
 
   ngOnInit(): void {
     this.dataService.getDestino().subscribe(data => {
-    this.jsonDato = data;
+      this.jsonDato = data;
     });
   }
-  
-  async onClickDelete(dato: Dato){
+
+  async onClickDelete(dato: Dato) {
     const response = await this.dataService.deleteDestino(dato);
     console.log(response);
   }

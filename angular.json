@@ -56,8 +56,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "fileReplacements": [
-              ]
+              "fileReplacements": []
             }
           },
           "defaultConfiguration": "production"

@@ -9,7 +9,7 @@ import { DataService } from './../../data.service';
 })
 export class PlayerComponent implements OnInit {
 
-  jsonDato: any = { viaje: [] };
+  jsonDato: Array<any> = [];
   dayNum = 0;
   dia: any = {};
   videoSrc: string = '';
@@ -25,7 +25,7 @@ export class PlayerComponent implements OnInit {
       this.jsonDato = data;
       this.route.params.subscribe(params => {
         this.dayNum = Number(params['dayNum']);
-        this.dia = this.jsonDato.viaje?.find(
+        this.dia = this.jsonDato.find(
           (d: any) => d.numero_dia === this.dayNum
         ) || {};
         this.videoSrc = this.dia.video_resumen || '';

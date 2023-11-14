@@ -10,7 +10,7 @@ import { DataService } from './../../data.service';
 export class DetailComponent {
 
   dayNum = 0;
-  jsonDato: any = {viaje:[]};
+  jsonDato: Array<any> = [];
   videoLink: string = '';
 
   constructor(

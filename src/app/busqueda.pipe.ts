@@ -6,7 +6,7 @@ import { DataService } from './../app/data.service';
 })
 export class BusquedaPipe implements PipeTransform {
 
-  jsonDato: any = {viaje:[]};
+  jsonDato: Array<any> = [];
 
   transform(values: string[], args: string): string[]  {
     let result:string[] = [];
