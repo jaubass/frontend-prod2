@@ -38,13 +38,13 @@ export class EditDayComponent {
       .split('\n')
       .map((item: string) => item.trim())
       .filter((item: string) => item !== '');
+
     this.formulario.patchValue({ actividades: actividadesArray });
 
     if (this.formulario.valid) {
-      // const response = await this.dataService
-      //   .addDay(this.formulario.value);
       // TODO: enlazar con la función de update
-      const response: null = null;
+      const response = await this.dataService
+        .updateDay(this.formulario.value);
 
       if (response) {
         this.mensaje = '¡Datos editados correctamente!';
@@ -71,7 +71,9 @@ export class EditDayComponent {
         this.backLink = `/day/${this.dayNum}`;
         // Add retrieved data to form
         const dayData = this.jsonDato.find(item => item.numero_dia === this.dayNum);
+        dayData.actividades = dayData.actividades.join('\n');
         this.formulario.patchValue(dayData);
+
       });
     });
   }

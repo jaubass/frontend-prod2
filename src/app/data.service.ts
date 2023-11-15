@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import Dato from './data.interface';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import {
+  Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc
+} from '@angular/fire/firestore';
 
 
 
@@ -34,9 +36,19 @@ export class DataService {
     return addDoc(datoRef, dato);
   }
 
+  async updateDay(dato: Dato) {
+    const datoDocRef = doc(this.firestore, `data/${dato.id}`);
+    try {
+      await updateDoc(datoDocRef, {...dato});
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
   getDestino(): Observable<Dato[]> {
     const datoRef = collection(this.firestore, 'data');
-    return collectionData(datoRef, { idField: 'id'}) as Observable<Dato[]>;
+    return collectionData(datoRef, { idField: 'id' }) as Observable<Dato[]>;
   }
 
   deleteDestino(dato: Dato) {

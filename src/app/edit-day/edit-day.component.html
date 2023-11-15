@@ -65,7 +65,7 @@
             </div>
             <h3>Actividades:</h3>
             <textarea class="form-control editDayForm" formControlName="actividades"
-              placeholder="Actividades, separadas por comas"></textarea>
+              placeholder="Actividades, separadas por saltos de línea"></textarea>
             <div *ngIf="dia.video_resumen">
               <h3>Video Resumen: <input class="form-control editDayForm" type="text" formControlName="video_resumen"
                   placeholder="URL del video"></h3>
@@ -75,9 +75,9 @@
                 URL del video es requerida
               </div>
             </div>
-            <input class="btn btn-info mt-2" type="submit" value="Editar">
+            <input class="btn btn-info mt-2 mb-3" type="submit" value="Editar">
 
-            <div class="form-alert">
+            <div class="form-alert mb-3" >
               <p *ngIf="mensaje">{{ mensaje }}</p>
             </div>
 
