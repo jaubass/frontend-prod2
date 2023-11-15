@@ -51,6 +51,7 @@ import { EditDayComponent } from './edit-day/edit-day.component';
     RouterModule.forRoot([
       {path: '', component: DaysComponent},
       {path: 'day/:dayNum/video', component: PlayerComponent},
+      {path: 'day/:dayNum/edit', component: EditDayComponent},
       {path: 'day/:dayNum', component: DetailComponent},
       {path: 'about', component: AboutComponent},
       {path: 'add-day', component: AddDestinoComponent},

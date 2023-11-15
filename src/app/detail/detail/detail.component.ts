@@ -12,6 +12,7 @@ export class DetailComponent {
   dayNum = 0;
   jsonDato: Array<any> = [];
   videoLink: string = '';
+  editLink: string = '';
 
   constructor(
     private dataService: DataService,
@@ -25,6 +26,7 @@ export class DetailComponent {
       this.route.params.subscribe(params => {
         this.dayNum = Number(params['dayNum']);
         this.videoLink = `/day/${this.dayNum}/video`;
+        this.editLink = `/day/${this.dayNum}/edit`;
       });
     });
   }

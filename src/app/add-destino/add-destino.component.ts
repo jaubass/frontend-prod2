@@ -12,7 +12,10 @@ export class AddDestinoComponent {
   formulario: FormGroup;
   mensaje: string = '';
 
-  constructor(private formBuilder: FormBuilder, private dataService: DataService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private dataService: DataService
+  ) {
     this.formulario = this.formBuilder.group({
       numero_dia: ['', Validators.required],
       ciudad: ['', Validators.required],
@@ -25,7 +28,10 @@ export class AddDestinoComponent {
   }
 
   async onSubmit() {
-    const actividadesArray = this.formulario.value.actividades.split('\n');
+    const actividadesArray = this.formulario.value.actividades
+      .split('\n')
+      .map((item: string) => item.trim())
+      .filter((item: string) => item !== '');
     this.formulario.patchValue({ actividades: actividadesArray });
 
     if (this.formulario.valid) {

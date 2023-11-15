@@ -1,1 +1,91 @@
-<p>edit-day works!</p>
+<app-hero></app-hero>
+<div class="container mt-3">
+  <div class="day-container mt-3 d-flex flex-wrap">
+
+    <div class="me-5 mb-5">
+      <div class="tcon">
+        <h2>Días del Viaje</h2>
+      </div>
+      <!-- Selector para elegir el día -->
+      <div class="cLista">
+        <div class="list-group">
+          <a *ngFor="let dia of jsonDato" routerLink="/day/{{ dia.numero_dia }}"
+            class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
+            Día {{ dia.numero_dia }}: {{ dia.ciudad }}
+          </a>
+          <a class="btn btn-primary2 mt-3" href="#" role="button" aria-current="page" routerLink="/"> &lt;-
+            Volver a Inicio</a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngFor="let dia of jsonDato">
+      <div *ngIf="dia.numero_dia === dayNum">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+          <div class="dtitle">
+            <h2>Día <input class="form-control editDayForm" type="number" formControlName="numero_dia"
+                placeholder="Número de día" min="0">
+              :
+              <input class="form-control editDayForm" type="text" formControlName="ciudad" placeholder="Ciudad">
+            </h2>
+            <div *ngIf="formulario.get('numero_dia')?.hasError('required') && formulario.get('numero_dia')?.touched"
+              class="error-message">
+              Número de día es requerido.
+            </div>
+            <div *ngIf="formulario.get('ciudad')?.hasError('required') && formulario.get('ciudad')?.touched"
+              class="error-message">
+              Ciudad es requerida.
+            </div>
+          </div>
+
+          <div class="body-detail">
+            <div class="container-span">
+              <h3><span style="font-weight: 400;">Alojamiento: </span> <input class="form-control editDayForm"
+                  type="text" formControlName="alojamiento" placeholder="Alojamiento"></h3>
+              <div *ngIf="formulario.get('alojamiento')?.hasError('required') && formulario.get('alojamiento')?.touched"
+                class="error-message">
+                Alojamiento es requerido
+              </div>
+              <h3><span style="font-weight: 400;">Descripción: </span>
+              </h3>
+                <textarea class="form-control editDayForm"
+                   formControlName="descripcion" placeholder="Descripción"></textarea>
+              <div *ngIf="formulario.get('descripcion')?.hasError('required') && formulario.get('descripcion')?.touched"
+                class="error-message">
+                Descripción es requerida
+              </div>
+
+              <h3><span style="font-weight: 400;">Valoración: </span> <input class="form-control editDayForm"
+                  type="number" formControlName="valoracion" placeholder="Valoración" min="0" max="5"></h3>
+              <div
+                *ngIf="(formulario.get('valoracion')?.hasError('min') || formulario.get('valoracion')?.hasError('max')) && formulario.get('valoracion')?.touched"
+                class="error-message">
+                Valoración debe estar entre 0 y 5
+              </div>
+            </div>
+            <h3>Actividades:</h3>
+            <textarea class="form-control editDayForm" formControlName="actividades"
+              placeholder="Actividades, separadas por comas"></textarea>
+            <div *ngIf="dia.video_resumen">
+              <h3>Video Resumen: <input class="form-control editDayForm" type="text" formControlName="video_resumen"
+                  placeholder="URL del video"></h3>
+              <div
+                *ngIf="formulario.get('video_resumen')?.hasError('required') && formulario.get('video_resumen')?.touched"
+                class="error-message">
+                URL del video es requerida
+              </div>
+            </div>
+            <input class="btn btn-info mt-2" type="submit" value="Editar">
+
+            <div class="form-alert">
+              <p *ngIf="mensaje">{{ mensaje }}</p>
+            </div>
+
+            <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> &lt;- Volver
+              a Inicio</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

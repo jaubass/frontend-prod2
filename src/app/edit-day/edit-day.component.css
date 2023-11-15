@@ -1,0 +1,80 @@
+.btn-primary {
+    background-color: #ffd400;
+    color: #000;
+    border: none;
+   }
+
+   .dtitle {
+    background-color: #ffd400;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .dtitle h2 {
+    font-family: 'Londrina Solid', sans-serif;
+    color: beige;
+    padding-top: 10px;
+  }
+
+  .body-detail {
+    margin-top: 24px;
+    padding: 12px;
+  }
+
+  h3 {
+    font-family: 'Londrina Solid', sans-serif;
+    padding-top: 6px;
+  }
+
+  h1 {
+    font-family: 'Londrina Solid', sans-serif;
+  }
+
+  .btn-primary {
+    font-family: 'Londrina Solid', sans-serif;
+    font-weight: 100;
+    color: beige;
+    font-size: 48px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .btn-primary2 {
+    font-family: 'Londrina Solid', sans-serif;
+    font-weight: 200;
+    color: 000;
+    font-size: 16px;
+    padding-left: 28px;
+    padding-right: 28px;
+    background-color: #ffd400;
+  }
+
+  .bcont {
+    margin: 24px;
+  }
+
+  .ul {
+    font-family: 'Londrina Solid', sans-serif;
+    font-weight: 100;
+  }
+
+  .list-group-item.active {
+    background-color: #ffd400;
+    border: #ffd400;
+    color:black;
+  }
+
+  .tcon {
+    text-decoration: underline;
+    text-decoration-color: #ffd400 ;
+  }
+
+  .editDayForm {
+    width: unset;
+    display: unset;
+  }
+  textarea.editDayForm {
+    display: block;
+    width: 100%;
+  }
