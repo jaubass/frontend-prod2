@@ -18,15 +18,13 @@ import { SafePipe } from './safe.pipe';
 import { SafeUrlDirective } from '../app/directives/safe.directive';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
-// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage} from '@angular/fire/storage';
 import { AddDestinoComponent } from './add-destino/add-destino.component';
 import { environment } from '../environments/environment';
 import { EditDayComponent } from './edit-day/edit-day.component';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
 @NgModule({
@@ -59,14 +57,13 @@ import { UploadFormComponent } from './components/upload-form/upload-form.compon
       {path: 'day/:dayNum', component: DetailComponent},
       {path: 'about', component: AboutComponent},
       {path: 'add-day', component: AddDestinoComponent},
+      {path: 'testupload', component: UploadFormComponent},
       {path: '**', component: Page404Component},
     ]),
     ReactiveFormsModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideFirestore(() => getFirestore()),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireStorageModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(()=> getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

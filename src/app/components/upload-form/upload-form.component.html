@@ -1,1 +1,14 @@
-<p>upload-form works!</p>
+<div class="m-5">
+    <div>
+        <h3>Carga de archivo</h3>
+        <label for="fileUpload">Choose a File</label>
+        <input id="fileUpload" type="file" #upload>
+        <button (click)="uploadFile(upload)">Upload</button>
+    </div>
+    <div>
+        <h3>Listado de archivos</h3>
+        <div *ngFor="let file of files">
+            <a href="{{file.url}}">{{file.name}}</a>
+        </div>
+    </div>
+</div>
