@@ -13,7 +13,7 @@
             class="list-group-item list-group-item-action" [ngClass]="{active: dia.numero_dia === dayNum}">
             Día {{ dia.numero_dia }}: {{ dia.ciudad }}
           </a>
-          <a class="btn btn-primary2 mt-3" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+          <a class="btn btn-primary2 mt-3" href="#" role="button" aria-current="page" routerLink="/"> &lt;- Volver a Inicio</a>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
             <li *ngFor="let actividad of dia.actividades">{{ actividad }}</li>
           </ul>
           <div *ngIf="dia.video_resumen">
-            <h3>Video Resumen:</h3>
+            <h3>Vídeo Resumen:</h3>
             <a [routerLink]="videoLink">
               <video width="320" height="240">
                 <source [src]="dia.video_resumen" type="video/mp4">
