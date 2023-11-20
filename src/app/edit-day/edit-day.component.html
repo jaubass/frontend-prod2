@@ -74,6 +74,10 @@
                 class="error-message">
                 URL del video es requerida
               </div>
+              <h3>Vídeo Resumen 2: <input class="form-control editDayForm" type="file" formControlName="video_file"
+                (change)="onFileSelected($event)" #fileUpload
+                placeholder="Archivo de vídeo"></h3>
+
             </div>
             <input class="btn btn-info mt-2 mb-3" type="submit" value="Editar">
 

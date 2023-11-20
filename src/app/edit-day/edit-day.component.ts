@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from './../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-day',
@@ -15,11 +16,13 @@ export class EditDayComponent {
   backLink: string = '';
   formulario: FormGroup;
   mensaje: string = '';
+  fileName: string = '';
 
   constructor(
     private dataService: DataService,
     private readonly route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    // private http: HttpClient
   ) {
     this.formulario = this.formBuilder.group({
       id: ['', Validators.required],
@@ -29,6 +32,7 @@ export class EditDayComponent {
       actividades: [''],
       descripcion: ['', Validators.required],
       video_resumen: ['', Validators.required],
+      video_file: '',
       valoracion: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
     });
   }
@@ -61,6 +65,22 @@ export class EditDayComponent {
   // resetForm() {
   //   this.formulario.reset();
   // }
+
+  onFileSelected(event: any) {
+
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.fileName = file.name;
+      console.log("this.fileName", this.fileName);
+      const formData = new FormData();
+      formData.append("videofile", file);
+      /*
+      const upload$ = this.http.post("/api/video-upload", formData);
+      upload$.subscribe();
+      */
+    }
+  }
 
   ngOnInit(): void {
     this.dataService.getDestino().subscribe(data => {
