@@ -39,6 +39,11 @@
           Valoración debe estar entre 0 y 5
         </div>
 
+        <input type="file" class="form-control" (change)="onFileSelected()" formControlName="subirVideo">
+        <div *ngIf="formulario.get('subirVideo')?.hasError('required') && formulario.get('subirVideo')?.touched" class="error-message">
+          Video es requerido
+        </div>
+
         <input class="btn btn-info mt-2" type="submit" value="Agregar">
 
         <div class="form-alert">

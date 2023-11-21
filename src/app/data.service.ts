@@ -56,6 +56,19 @@ export class DataService {
     return deleteDoc(datoDocRef);
   }
 
+  uploadFile(file: File, path: string): Observable<string> {
+    const fileRef = this.firestore.ref(path);
+    const task = this.firestore.upload(path, file);
+
+    return task.snapshotChanges().pipe(
+      // Puedes realizar acciones adicionales aquí si es necesario
+      // Puedes obtener la URL de descarga una vez que la carga se haya completado
+      // y almacenarla en tu base de datos si es necesario.
+      // Ejemplo:
+      // finalize(() => fileRef.getDownloadURL())
+    );
+  }
+
 
   getData(): Observable<any> {
     return this.http.get('/assets/data.json');

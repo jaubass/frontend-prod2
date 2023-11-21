@@ -23,6 +23,7 @@ export class AddDestinoComponent {
       actividades: [''],
       descripcion: ['', Validators.required],
       video_resumen: ['', Validators.required],
+      subirVideo: [null, Validators.required],
       valoracion: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
     });
   }
@@ -48,6 +49,16 @@ export class AddDestinoComponent {
     } else {
       this.mensaje = 'Por favor, completa correctamente los campos requeridos.';
     }
+  }
+
+  onFileSelected(): void{
+    const file: File = this.formulario.get('').value;
+    const path = `uploads/${file.name}`;
+
+    this.dataService.uploadFile(file, path).subscribe(url => {
+      console.log('File uploaded. Download URL:', url);
+      // Aquí puedes manejar la URL de descarga si es necesario
+    });
   }
 
   resetForm() {
