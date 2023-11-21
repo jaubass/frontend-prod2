@@ -4,10 +4,8 @@ import {
   ref,
   uploadBytesResumable,
   getStorage,
-  getMetadata,
   listAll,
 } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
 
 
 @Component({

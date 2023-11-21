@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from './../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  Storage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL
+} from '@angular/fire/storage';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,12 +17,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EditDayComponent {
 
+  private readonly storage: Storage = inject(Storage);
   dayNum = 0;
   jsonDato: Array<any> = [];
   backLink: string = '';
   formulario: FormGroup;
   mensaje: string = '';
   fileName: string = '';
+  oldVideoPath: string = '';
+  public inputFiles: HTMLInputElement | undefined;
 
   constructor(
     private dataService: DataService,
@@ -32,12 +41,14 @@ export class EditDayComponent {
       actividades: [''],
       descripcion: ['', Validators.required],
       video_resumen: ['', Validators.required],
-      video_file: '',
       valoracion: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
     });
   }
 
   async onSubmit() {
+
+    this.mensaje = "Espere mientras se actualizan los datos...";
+
     const actividadesArray = this.formulario.value.actividades
       .split('\n')
       .map((item: string) => item.trim())
@@ -45,8 +56,17 @@ export class EditDayComponent {
 
     this.formulario.patchValue({ actividades: actividadesArray });
 
+    if (this.formulario.value.video_resumen === '') {
+      // Si no hay un nuevo video, se mantiene el anterior
+      this.formulario.patchValue({ video_resumen: this.oldVideoPath });
+
+    } else {
+      // Si hay nuevo vídeo, se ha de subir a Firebase
+      await this.uploadFile();
+    }
+
     if (this.formulario.valid) {
-      // TODO: enlazar con la función de update
+
       const response = await this.dataService
         .updateDay(this.formulario.value);
 
@@ -62,6 +82,24 @@ export class EditDayComponent {
     }
   }
 
+  async uploadFile() {
+
+    if (this.inputFiles === undefined) { return; }
+
+    const input: HTMLInputElement = this.inputFiles;
+
+    console.log("Trying to upload file...", input);
+
+    if (!input.files || !input.files[0]) { return; }
+
+    const file: File = input.files[0];
+
+    if (file) {
+      const storageRef = ref(this.storage, 'videos/' + file.name);
+      await uploadBytesResumable(storageRef, file);
+    }
+  }
+
   // resetForm() {
   //   this.formulario.reset();
   // }
@@ -72,13 +110,8 @@ export class EditDayComponent {
 
     if (file) {
       this.fileName = file.name;
-      console.log("this.fileName", this.fileName);
-      const formData = new FormData();
-      formData.append("videofile", file);
-      /*
-      const upload$ = this.http.post("/api/video-upload", formData);
-      upload$.subscribe();
-      */
+      this.formulario.patchValue({ video_resumen: `videos/${this.fileName}` });
+      this.inputFiles = event.target;
     }
   }
 
@@ -93,7 +126,23 @@ export class EditDayComponent {
         const dayData = this.jsonDato.find(item => item.numero_dia === this.dayNum);
         dayData.actividades = dayData.actividades.join('\n');
         this.formulario.patchValue(dayData);
+        this.oldVideoPath = dayData.video_resumen;
 
+        const videoPath: string = dayData.video_resumen;
+        if (videoPath) {
+          const storageRef = ref(this.storage, videoPath);
+          getDownloadURL(storageRef)
+            .then(url => {
+              const videoDiv = document.getElementById('videoDivEdit');
+              if (videoDiv) {
+                videoDiv.innerHTML = `<video  width="320" height="240" controls>
+                  <source src="${url}" type="video/mp4">
+                  Your browser does not support HTML video.
+                </video>`;
+              }
+            })
+            .catch(err => console.log("No se ha podido cargar el video."));
+        }
       });
     });
   }

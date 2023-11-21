@@ -4,11 +4,7 @@ import { DataService } from './../../data.service';
 import {
   Storage,
   ref,
-  getDownloadURL,
-  uploadBytesResumable,
-  getStorage,
-  getMetadata,
-  listAll
+  getDownloadURL
 } from '@angular/fire/storage';
 
 @Component({

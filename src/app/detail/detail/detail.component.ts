@@ -51,7 +51,8 @@ export class DetailComponent {
                   Your browser does not support HTML video.
                 </video>`;
               }
-            });
+            })
+            .catch(err => console.log("No se ha podido cargar el video."));
         }
       });
     });
