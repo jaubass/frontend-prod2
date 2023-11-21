@@ -5,10 +5,7 @@
   <div class="day-container mt-3">
 <div *ngIf="dia.video_resumen">
   <h3>Vídeo Resumen:</h3>
-  <video class="player" controls>
-    <source [src]="videoSrc" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div id="videoDiv"></div>
 </div>
 </div>
 </div>
