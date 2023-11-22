@@ -4,7 +4,6 @@ import {
   ref,
   uploadBytesResumable,
   getStorage,
-  getMetadata,
   listAll,
 } from '@angular/fire/storage';
 
@@ -14,10 +13,12 @@ import {
   templateUrl: './upload-form.component.html',
   styleUrls: ['./upload-form.component.css'],
 })
+
 export class UploadFormComponent {
 
   private readonly storage: Storage = inject(Storage);
   public files: Array<any> = [];
+  public videoUrl: string = '';
 
   uploadFile(input: HTMLInputElement) {
 
@@ -29,6 +30,12 @@ export class UploadFormComponent {
       const storageRef = ref(this.storage, 'videos/'+file.name);
       uploadBytesResumable(storageRef, file);
     }
+  }
+
+  downloadFile(filePath: string) {
+    const storageRef = ref(this.storage, filePath);
+
+
   }
 
   async ngOnInit() {

@@ -67,18 +67,12 @@
             <textarea class="form-control editDayForm" formControlName="actividades"
               placeholder="Actividades, separadas por saltos de línea"></textarea>
             <div *ngIf="dia.video_resumen">
-              <h3>Vídeo Resumen: <input class="form-control editDayForm" type="text" formControlName="video_resumen"
-                  placeholder="URL del video"></h3>
-              <div
-                *ngIf="formulario.get('video_resumen')?.hasError('required') && formulario.get('video_resumen')?.touched"
-                class="error-message">
-                URL del video es requerida
-              </div>
-              <h3>Vídeo Resumen 2: <input class="form-control editDayForm" type="file" formControlName="video_file"
+              <h3>Vídeo Resumen: <input class="form-control editDayForm" type="file" formControlName="video_resumen"
                 (change)="onFileSelected($event)" #fileUpload
-                placeholder="Archivo de vídeo"></h3>
-
+                placeholder="Archivo de vídeo">
+              </h3>
             </div>
+            <div id="videoDivEdit"></div>
             <input class="btn btn-info mt-2 mb-3" type="submit" value="Editar">
 
             <div class="form-alert mb-3" >

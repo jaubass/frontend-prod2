@@ -36,13 +36,10 @@
           <div *ngIf="dia.video_resumen">
             <h3>Vídeo Resumen:</h3>
             <a [routerLink]="videoLink">
-              <video width="320" height="240">
-                <source [src]="dia.video_resumen" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+              <div id="videoDivDetail"></div>
             </a>
           </div>
-          <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> <- Volver a Inicio</a>
+          <a class="btn btn-primary2" href="#" role="button" aria-current="page" routerLink="/"> &lt;- Volver a Inicio</a>
           <a class="btn btn-primary2 ms-5" href="#" role="button" [routerLink]="editLink"> Editar este día</a>
         </div>
       </div>
