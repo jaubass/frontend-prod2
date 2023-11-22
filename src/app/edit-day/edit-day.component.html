@@ -67,7 +67,7 @@
             <textarea class="form-control editDayForm" formControlName="actividades"
               placeholder="Actividades, separadas por saltos de línea"></textarea>
 
-            <div *ngIf="dia.video_resumen">
+            <div>
               <h3>Vídeo Resumen: <input class="form-control editDayForm" type="file" formControlName="video_resumen"
                 (change)="onFileSelected($event)" #fileUpload
                 placeholder="Archivo de vídeo">
