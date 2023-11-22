@@ -25,9 +25,6 @@ import { AddDestinoComponent } from './add-destino/add-destino.component';
 import { environment } from '../environments/environment';
 import { EditDayComponent } from './edit-day/edit-day.component';
 
-// TODO: delete uploadFormComponent (it was only for testing)
-import { UploadFormComponent } from './components/upload-form/upload-form.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +42,6 @@ import { UploadFormComponent } from './components/upload-form/upload-form.compon
     Page404Component,
     AddDestinoComponent,
     EditDayComponent,
-    UploadFormComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +54,6 @@ import { UploadFormComponent } from './components/upload-form/upload-form.compon
       {path: 'day/:dayNum', component: DetailComponent},
       {path: 'about', component: AboutComponent},
       {path: 'add-day', component: AddDestinoComponent},
-      {path: 'testupload', component: UploadFormComponent},
       {path: '**', component: Page404Component},
     ]),
     ReactiveFormsModule,
