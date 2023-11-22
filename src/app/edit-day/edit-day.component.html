@@ -66,6 +66,7 @@
             <h3>Actividades:</h3>
             <textarea class="form-control editDayForm" formControlName="actividades"
               placeholder="Actividades, separadas por saltos de línea"></textarea>
+
             <div *ngIf="dia.video_resumen">
               <h3>Vídeo Resumen: <input class="form-control editDayForm" type="file" formControlName="video_resumen"
                 (change)="onFileSelected($event)" #fileUpload
@@ -73,6 +74,7 @@
               </h3>
             </div>
             <div id="videoDivEdit"></div>
+
             <input class="btn btn-info mt-2 mb-3" type="submit" value="Editar">
 
             <div class="form-alert mb-3" >

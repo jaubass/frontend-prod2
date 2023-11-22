@@ -25,6 +25,7 @@ import { AddDestinoComponent } from './add-destino/add-destino.component';
 import { environment } from '../environments/environment';
 import { EditDayComponent } from './edit-day/edit-day.component';
 
+// TODO: delete uploadFormComponent (it was only for testing)
 import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
 @NgModule({
