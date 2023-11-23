@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
   Storage,
   ref,
   uploadBytesResumable,
-  getDownloadURL
+  getDownloadURL,
+  UploadTaskSnapshot
 } from '@angular/fire/storage';
 import { HttpClient } from '@angular/common/http';
 
@@ -30,6 +31,7 @@ export class EditDayComponent {
   constructor(
     private dataService: DataService,
     private readonly route: ActivatedRoute,
+    private router: Router,
     private formBuilder: FormBuilder,
     // private http: HttpClient
   ) {
@@ -40,14 +42,14 @@ export class EditDayComponent {
       alojamiento: ['', Validators.required],
       actividades: [''],
       descripcion: ['', Validators.required],
-      video_resumen: ['', Validators.required],
+      video_resumen: [''],
       valoracion: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
     });
   }
 
   async onSubmit() {
 
-    this.mensaje = "Espere mientras se actualizan los datos...";
+    this.mensaje = "Por favor, espera mientras se actualizan los datos. El vídeo puede tardar en cargarse...";
 
     const actividadesArray = this.formulario.value.actividades
       .split('\n')
@@ -56,22 +58,23 @@ export class EditDayComponent {
 
     this.formulario.patchValue({ actividades: actividadesArray });
 
-    if (this.formulario.value.video_resumen === '') {
-      // Si no hay un nuevo video, se mantiene el anterior
-      this.formulario.patchValue({ video_resumen: this.oldVideoPath });
-
-    } else {
-      // Si hay nuevo vídeo, se ha de subir a Firebase
-      await this.uploadFile();
-    }
-
     if (this.formulario.valid) {
+
+      if (this.formulario.value.video_resumen === '') {
+        // Si no hay un nuevo video, se mantiene el anterior
+        this.formulario.patchValue({ video_resumen: this.oldVideoPath });
+
+      } else {
+        // Si hay nuevo vídeo, se ha de subir a Firebase
+        await this.uploadFile();
+      }
 
       const response = await this.dataService
         .updateDay(this.formulario.value);
 
       if (response) {
         this.mensaje = '¡Datos editados correctamente!';
+        this.router.navigate([this.backLink]);
       } else {
         this.mensaje = 'Error al editar los datos. Por favor, intenta nuevamente.';
         console.error('Error al enviar los datos a Firebase');

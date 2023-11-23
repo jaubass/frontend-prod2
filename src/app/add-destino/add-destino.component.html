@@ -26,10 +26,10 @@
           Descripción es requerida
         </div>
 
-        <input class="form-control" type="text" formControlName="video_resumen" placeholder="URL del video">
-        <div *ngIf="formulario.get('video_resumen')?.hasError('required') && formulario.get('video_resumen')?.touched" class="error-message">
-          URL del video es requerida
-        </div>
+        <div>Vídeo:</div>
+        <input class="form-control editDayForm" type="file" formControlName="video_resumen"
+                (change)="onFileSelected($event)" #fileUpload
+                placeholder="Archivo de vídeo">
 
         <input class="form-control" type="number" formControlName="valoracion" placeholder="Valoración" min="0" max="5">
         <div *ngIf="formulario.get('valoracion')?.hasError('required') && formulario.get('valoracion')?.touched" class="error-message">
